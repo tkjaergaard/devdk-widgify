@@ -21,11 +21,12 @@ class Fields {
     public function add_field(array $args)
     {
         $defaults = [
-            "default" => null,
-            "classes" => null,
-            "label"   => null,
-            "type"    => "text",
-            "options" => array()
+            "default"  => null,
+            "classes"  => null,
+            "label"    => null,
+            "type"     => "text",
+            "options"  => array(),
+            "settings" => array(),
         ];
 
         $this->fields[$args['name']] = array_merge($defaults, $args);
@@ -70,7 +71,7 @@ class Fields {
                     break;
                 case "pages":
                     $markup = "";
-                    echo $this->page($value, $field_name, $field_id);
+                    echo $this->page($value, $field_name, $field_id, $field['settings']);
                     break;
                 case "upload":
                     $markup = "";
@@ -116,14 +117,22 @@ class Fields {
      * @param  string $id
      * @return string
      */
-    protected function page($value=null, $name, $id)
+    protected function page($value=null, $name, $id, array $settings)
     {
-        return "<br />".wp_dropdown_pages([
+        $args = [
             'selected' => $value,
             'echo'     => 0,
             'name'     => $name,
             'id'       => $id
-        ]);
+        ];
+
+        if( isset($settings['none']) )
+        {
+            $args['show_option_none']  = $settings['none'];
+            $args['option_none_value'] = -1;
+        }
+
+        return "<br />".wp_dropdown_pages($args);
     }
 
     /**
