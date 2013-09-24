@@ -1,6 +1,8 @@
 <?php namespace Devdk;
 
 use Closure;
+use Devdk\Widgify\Fields;
+use Devdk\Widgify\Factory;
 
 class Widgify {
 

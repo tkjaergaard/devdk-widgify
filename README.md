@@ -33,6 +33,7 @@ Now, either in your own plugin or in your theme functions.php you can use the Wi
 
 ## Available field types
 Widgify has, for now, these field types build in.
+
 * text
 * textarea
 * pages
