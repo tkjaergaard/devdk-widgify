@@ -1,16 +1,4 @@
 <?php
-/**
- * Plugin Name: Widgify
- * Plugin URI: http://getwidgify.com
- * Description: A small helper class to create complex Wordpress widgets in no time.
- * Version: 1.0.0
- * Author: Thomas Kjaergaard
- * Author URI: http://twitter.com/t_kjaergaard
- * License: MIT
- */
-
-// Autoload plugin files and dependencies
-require_once(__DIR__."/vendor/autoload.php");
 
 // Enqueue scripts
 add_action('admin_enqueue_scripts', function()
