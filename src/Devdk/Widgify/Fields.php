@@ -175,7 +175,7 @@ class Fields {
         $return .= sprintf('<select id="%s" name="%s">', $id, $name);
         foreach( $options as $val => $txt)
         {
-            $selected = ($val === $value ? ' selected="selected"' : '');
+            $selected = (strval($val) === strval($value) ? ' selected="selected"' : '');
             $return .= sprintf('<option%s value="%s">%s</option>', $selected, $val, $txt);
         }
         $return .= "</select>";
